@@ -1,0 +1,85 @@
+:root {
+  --background: linear-gradient(
+    0deg,
+    rgba(79, 80, 80, 0.3) 0%,
+    rgba(184, 183, 181, 0.2777485994397759) 100%
+  );
+}
+.wrapper {
+  display: flex;
+}
+
+.image {
+  width: 300px;
+  margin-right: 20px;
+}
+
+.rating {
+  margin: 0;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  max-width: 40px;
+  border-radius: 15px;
+  border: solid 1px dimgrey;
+  background: var(--background);
+}
+
+.title {
+  margin: 0px 0px 10px 0px;
+  font-size: 30px;
+  color: rgb(196, 57, 57);
+}
+
+.subtitle {
+  font-size: 20px;
+  color: rgb(196, 57, 57);
+  margin: 5px;
+}
+
+.descr {
+  margin: 0;
+  border: solid 1px dimgrey;
+  border-radius: 15px;
+  padding: 15px;
+  background: var(--background);
+  font-weight: 600;
+}
+
+.genres {
+  margin: 0;
+  display: inline-block;
+  border: solid 1px dimgrey;
+  border-radius: 15px;
+  padding: 5px 20px;
+  background: var(--background);
+  font-weight: 600;
+  list-style: none;
+}
+
+.release {
+  text-align: center;
+  font-weight: 600;
+  border: solid 1px dimgrey;
+  border-radius: 15px;
+  padding: 15px;
+  background: var(--background);
+  width: 100px;
+  margin: 0;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 18px;
+}
+
+.activeLink {
+  composes: link;
+  color: #2196f3;
+}
