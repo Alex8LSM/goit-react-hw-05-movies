@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-
+import { useParams } from 'react-router-dom';
 import { fetchReviewsForFilm } from '../../services/film-api';
 import s from './ReviewView.module.css';
 import photo from '../../images/photo.png';
 
-export default function ReviewView({ movieId }) {
+export default function ReviewView() {
+  console.log(useParams());
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {

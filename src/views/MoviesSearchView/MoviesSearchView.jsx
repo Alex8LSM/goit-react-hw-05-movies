@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import FilmStatus from '../FilmStatus/FilmStatus';
@@ -6,8 +5,6 @@ import FilmStatus from '../FilmStatus/FilmStatus';
 export default function MoviesSearchView() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [filmName, setFilmName] = useState();
-
   const requestUrl = new URLSearchParams(location.search).get('request');
 
   const onRequestChange = request => {
@@ -15,14 +12,16 @@ export default function MoviesSearchView() {
   };
 
   const onSubmit = name => {
-    setFilmName(name);
     onRequestChange(name);
   };
+  console.log('navigate: ', navigate);
+  console.log('location: ', location);
+  console.log('requestUrl: ', requestUrl);
 
   return (
     <>
       <Searchbar onSubmit={onSubmit} />
-      <FilmStatus filmName={filmName} requestUrl={requestUrl} />
+      <FilmStatus requestUrl={requestUrl} />
     </>
   );
 }

@@ -14,7 +14,7 @@ const Status = {
   REJECTED: 'rejected',
 };
 
-export default function FilmStatus({ filmName, requestUrl }) {
+export default function FilmStatus({ requestUrl }) {
   const [error, setError] = useState({});
   const [status, setStatus] = useState(Status.IDLE);
   const [films, setFilms] = useState([]);
@@ -34,14 +34,11 @@ export default function FilmStatus({ filmName, requestUrl }) {
   };
 
   useEffect(() => {
-    if (filmName === '' && requestUrl !== null) {
+    if (requestUrl !== null) {
       fetchMovies(requestUrl);
       return;
     }
-    if (filmName) {
-      fetchMovies(filmName);
-    }
-  }, [filmName, requestUrl]);
+  }, [requestUrl]);
   if (status === Status.IDLE) {
     return (
       <div>
@@ -65,6 +62,5 @@ export default function FilmStatus({ filmName, requestUrl }) {
 }
 
 FilmStatus.propTypes = {
-  filmName: PropTypes.string,
   requestUrl: PropTypes.string,
 };

@@ -1,20 +1,16 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 
-import { useParams, NavLink, Route, Routes } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 
 import { fetchPrimaryInfoAboutFilm, IMAGE_URL } from '../../services/film-api';
 import s from './SingleFilmView.module.css';
-import PendingView from '../PendingView/PendingView';
-
-const CastView = lazy(() => import('../CastView/CastView'));
-const ReviewView = lazy(() => import('../ReviewView/ReviewView'));
 
 export default function SingleFilmsView() {
-  const { moviesId } = useParams();
+  const { movieId } = useParams();
   const [film, setFilm] = useState(null);
   useEffect(() => {
-    fetchPrimaryInfoAboutFilm(moviesId).then(setFilm);
-  }, [moviesId]);
+    fetchPrimaryInfoAboutFilm(movieId).then(setFilm);
+  }, [movieId]);
   return (
     <>
       {film && (
@@ -66,16 +62,7 @@ export default function SingleFilmsView() {
                 Review
               </NavLink>
             </nav>
-
-            <Suspense fallback={<PendingView />}>
-              <Routes>
-                <Route path="cast" element={<CastView moviesId={moviesId} />} />
-                <Route
-                  path="review"
-                  element={<ReviewView movieId={moviesId} />}
-                />
-              </Routes>
-            </Suspense>
+            <Outlet />
           </div>
         </>
       )}
