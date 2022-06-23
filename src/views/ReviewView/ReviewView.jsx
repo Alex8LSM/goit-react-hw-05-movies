@@ -5,14 +5,12 @@ import s from './ReviewView.module.css';
 import photo from '../../images/photo.png';
 
 export default function ReviewView() {
-  console.log(useParams());
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     fetchReviewsForFilm(movieId).then(request => setReviews(request.results));
   }, [movieId]);
-  console.log(reviews);
   return (
     <div className={s.wrapper}>
       {reviews.length > 0 ? (

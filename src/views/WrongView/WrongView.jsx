@@ -5,5 +5,5 @@ export default function WrongView() {
 
   useEffect(() => {
     navigate('/', { replace: true });
-  }, []);
+  }, [navigate]);
 }
