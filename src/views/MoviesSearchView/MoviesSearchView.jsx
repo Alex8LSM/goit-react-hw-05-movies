@@ -7,7 +7,6 @@ export default function MoviesSearchView() {
   const navigate = useNavigate();
   const location = useLocation();
   const [filmName, setFilmName] = useState();
-  const [films, setFilms] = useState([]);
 
   const requestUrl = new URLSearchParams(location.search).get('request');
 
@@ -17,7 +16,6 @@ export default function MoviesSearchView() {
 
   const onSubmit = name => {
     setFilmName(name);
-    setFilms([]);
     onRequestChange(name);
   };
 
