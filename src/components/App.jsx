@@ -8,6 +8,7 @@ import PendingView from '../views/PendingView/PendingView';
 const CastView = lazy(() => import('../views/CastView/CastView'));
 const ReviewView = lazy(() => import('../views/ReviewView/ReviewView'));
 const HomeView = lazy(() => import('../views/HomeView/HomeView'));
+const WrongView = lazy(() => import('../views/WrongView/WrongView'));
 const SingleFilmView = lazy(() =>
   import('../views/SingleFilmView/SingleFilmView')
 );
@@ -28,6 +29,7 @@ export const App = () => {
             <Route path="review" element={<ReviewView />} />
           </Route>
           <Route path="/movies" element={<MoviesSearchView />} />
+          <Route path="*" element={<WrongView />} />
         </Routes>
       </Suspense>
     </Container>

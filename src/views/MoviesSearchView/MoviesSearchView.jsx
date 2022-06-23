@@ -5,19 +5,15 @@ import FilmStatus from '../FilmStatus/FilmStatus';
 export default function MoviesSearchView() {
   const navigate = useNavigate();
   const location = useLocation();
-  const requestUrl = new URLSearchParams(location.search).get('request');
+  const requestUrl = new URLSearchParams(location.search).get('query');
 
   const onRequestChange = request => {
-    navigate({ ...location, search: `request=${request}` });
+    navigate({ ...location, search: `query=${request}` });
   };
 
   const onSubmit = name => {
     onRequestChange(name);
   };
-  console.log('navigate: ', navigate);
-  console.log('location: ', location);
-  console.log('requestUrl: ', requestUrl);
-
   return (
     <>
       <Searchbar onSubmit={onSubmit} />
