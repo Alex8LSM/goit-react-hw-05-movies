@@ -6,11 +6,15 @@ import ErrorView from '../ErrorView/ErrorView';
 
 export default function SingleFilmsView() {
   const { movieId } = useParams();
-  const [film, setFilm] = useState(null);
+  const [film, setFilm] = useState('not set');
   const [fromLink, setfromLink] = useState('/');
   const location = useLocation();
   useEffect(() => {
-    fetchPrimaryInfoAboutFilm(movieId).then(setFilm);
+    fetchPrimaryInfoAboutFilm(movieId)
+      .then(setFilm)
+      .catch(err => {
+        return setFilm(null);
+      });
   }, [movieId]);
   useEffect(() => {
     if (location.state) {
