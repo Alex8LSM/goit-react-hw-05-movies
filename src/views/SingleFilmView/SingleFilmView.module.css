@@ -79,6 +79,18 @@
   font-size: 18px;
 }
 
+.backLink {
+  text-decoration: none;
+  font-size: 14px;
+  color: #2a363b;
+}
+.backBtn {
+  font-weight: 500;
+  border-radius: 5px;
+  border: solid 1px dimgrey;
+  background: var(--background);
+}
+
 .activeLink {
   composes: link;
   color: #2196f3;

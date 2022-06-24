@@ -42,7 +42,11 @@ export default function HomeView() {
         <ul className={s.list}>
           {films.map(film => (
             <li key={film.id} className={s.list__item}>
-              <Link className={s.title} to={`movies/${film.id}`}>
+              <Link
+                className={s.title}
+                to={`movies/${film.id}`}
+                state={{ from: '/' }}
+              >
                 <img
                   className={s.image}
                   src={`${IMAGE_URL}${film.poster_path}`}
